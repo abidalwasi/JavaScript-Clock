@@ -1,12 +1,15 @@
 body {
   background: linear-gradient(to right, #210074, #d100ff);
   font-family: Gotham Rounded, sans-serif;
+  overflow: hidden;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  margin: 20em;
+  align-items: center;
+  min-height: 100vh;
+  /*margin: 20em;*/
 }
 
 .clock-container {
@@ -73,7 +76,7 @@ body {
   left: 50%;
   width: 10px;
   height: 40%;
-  --rotation: 30;
+  --rotation: 0;
   transform-origin: bottom;
   transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
   background: black;
@@ -81,3 +84,35 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
+.clock-container::after {
+  content: "";
+  position: absolute;
+  background: #000;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.clock-container .hand.second {
+  width: 3px;
+  height: 45%;
+  background: red;
+}
+
+.clock-container .hand.minute {
+  width: 7px;
+  height: 40%;
+  background: black;
+}
+
+.clock-container .hand.hour {
+  width: 10px;
+  height: 35%;
+  background: black;
+}
+
