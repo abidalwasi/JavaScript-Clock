@@ -3,11 +3,17 @@ body {
   font-family: Gotham Rounded, sans-serif;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 20em;
+}
+
 .clock-container {
   position: relative;
   width: 300px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   border: 2px solid #ffffff;
 }
@@ -60,3 +66,18 @@ body {
 .number9 div{ --reverse: -270deg}
 .number10 div{--reverse: -300deg}
 .number11 div{--reverse: -330deg}
+
+.clock-container .hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 10px;
+  height: 40%;
+  --rotation: 30;
+  transform-origin: bottom;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  background: black;
+  border: 2px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
